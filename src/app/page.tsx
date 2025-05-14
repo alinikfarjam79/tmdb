@@ -50,6 +50,7 @@ export default function HomePage() {
       </div>
       {loading && <p>Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
+      {!loading && !error && movies.length == 0 && "No movie found"}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {movies.map((m) => (
           <MovieCard key={m.id} movie={m} />
