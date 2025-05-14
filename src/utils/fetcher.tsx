@@ -22,13 +22,15 @@ export async function fetchMovieDetails(id: string) {
 }
 
 export async function fetchGenres() {
-  const res = await fetch(`${API_URL}/genre/movie/list`);
+  const res = await fetch(`${API_URL}/genre/movie/list?api_key=${API_KEY}`);
   if (!res.ok) throw new Error("Failed to fetch genres");
   return res.json();
 }
 
 export async function fetchMoviesByGenre(genreId: string) {
-  const res = await fetch(`${API_URL}/discover/movie?with_genres=${genreId}`);
+  const res = await fetch(
+    `${API_URL}/discover/movie?with_genres=${genreId}?api_key=${API_KEY}`
+  );
   if (!res.ok) throw new Error("Failed to fetch movies by genre");
   return res.json();
 }
