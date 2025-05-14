@@ -1,10 +1,11 @@
 import { fetchMovieDetails } from "@/utils/fetcher";
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
 
-export default async function MovieDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function MovieDetailPage({ params }: PageProps) {
   const movie = await fetchMovieDetails(params.id);
   return (
     <div className="p-4">
